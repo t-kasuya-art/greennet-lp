@@ -224,6 +224,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 40px;
+      align-items: stretch;
     }
 
     .solution-card {
@@ -231,6 +232,8 @@
       border: 1px solid #e8e8e8;
       border-radius: 4px;
       background: #ffffff;
+      display: flex;
+      flex-direction: column;
     }
 
     .solution-card .q-num {
@@ -242,21 +245,23 @@
     }
 
     .solution-card h3 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
       color: #1e293b;
-      line-height: 1.6;
+      line-height: 1.65;
       padding-bottom: 16px;
       border-bottom: 1px solid #f0f0f0;
       margin-bottom: 16px;
       word-break: keep-all;
+      min-height: 64px;
     }
 
     .solution-card p {
       font-size: 13px;
       color: #334155;
-      line-height: 1.9;
+      line-height: 1.95;
       word-break: keep-all;
+      flex: 1;
     }
 
     /* ─── SEC4: REASONS ─── */
@@ -713,17 +718,17 @@
     <div class="solution-cards">
       <div class="solution-card">
         <p class="q-num">QUESTION 01</p>
-        <h3>「誰が、何の仕事をするんですか？」</h3>
-        <p>みどりスタックを設置し、ハーブと観葉植物の栽培を、専用の仕事として設計します。挿し木・水やり・記録。アプリが一人ひとりに合わせた手順を届けるので、指導員の準備は最小限です。</p>
+        <h3>「誰が、何の仕事を<br>するんですか？」</h3>
+        <p>みどりスタックを設置し、ハーブと観葉植物の栽培を専用の仕事として設計します。挿し木・水やり・記録——アプリが一人ひとりに合わせた手順を届けるので、指導員の準備は最小限です。</p>
       </div>
       <div class="solution-card">
         <p class="q-num">QUESTION 02</p>
-        <h3>「本当に、続けてもらえますか？」</h3>
-        <p>育てた植物は、社内のキッチンや休憩室へ。飲んだ人の「おいしかった」「ありがとう」が、アプリを通じて本人に届きます。毎日の達成感と、感謝の循環が、やりがいをつくります。</p>
+        <h3>「本当に、続けて<br>もらえますか？」</h3>
+        <p>育てた植物は、社内のキッチンや休憩室へ。飲んだ人の「おいしかった」「ありがとう」が、アプリを通じて本人に届きます。毎日の達成感と感謝の循環が、やりがいをつくります。</p>
       </div>
       <div class="solution-card">
         <p class="q-num">QUESTION 03</p>
-        <h3>「成果を、どう説明するんですか？」</h3>
+        <h3>「成果を、どう<br>説明するんですか？」</h3>
         <p>定着率、エンゲージメント、育成成功率——管理ダッシュボードが継続的に記録し、人事レポートとしてそのまま使えます。「感覚」ではなく「数字」で、経営に報告できます。</p>
       </div>
     </div>
