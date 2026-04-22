@@ -6,7 +6,7 @@
   <title>グリーンネット | 育てる職場が、会社を変える</title>
   <style>
     :root {
-      --gn-green: #24b527;
+      --gn-green: #2d7a3a;
       --gn-green-dark: #14532d;
       --gn-green-deep: #0f3a19;
       --gn-blue: #0093e9;
@@ -83,8 +83,7 @@
     .hero {
       background: linear-gradient(135deg, var(--gn-green-deep) 0%, var(--gn-green-dark) 50%, #1a6b2a 100%);
       color: var(--gn-white);
-      padding: 100px 40px 80px;
-      text-align: center;
+      padding: 80px 40px;
       position: relative;
       overflow: hidden;
     }
@@ -96,7 +95,53 @@
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
-    .hero-inner { max-width: 760px; margin: 0 auto; position: relative; }
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .hero-content { flex: 1; }
+
+    .hero-image {
+      flex: 0 0 340px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-icon {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .case-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ─── FADE-IN ANIMATION ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .hero-label {
       display: inline-block;
@@ -657,7 +702,10 @@
     @media (max-width: 768px) {
       header { padding: 16px 20px; }
       section { padding: 60px 20px; }
-      .hero { padding: 80px 20px 60px; }
+      .hero { padding: 60px 20px; }
+      .hero-inner { flex-direction: column; gap: 32px; }
+      .hero-image { flex: none; width: 100%; }
+      .hero-image img { height: 240px; }
 
       .data-cards { grid-template-columns: 1fr; }
       .solution-cards { grid-template-columns: 1fr; }
@@ -688,17 +736,22 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-label">障がい者雇用 × 職場緑化ソリューション</div>
-    <h1>
-      デザインとしての緑化は、もう十分美しい。
-      <span class="accent">育てることに、上げ止まりはない。</span>
-    </h1>
-    <p class="hero-sub">
-      社員が緑と花に触れ、関わるほど、<br>
-      ウェルビーイングは数値で積み上がり続けます。
-    </p>
-    <a href="#cta" class="hero-cta">まずは資料を受け取る（無料）</a>
-    <p class="hero-cta-note">しつこいご連絡はしません。資料だけのご請求も大歓迎です。</p>
+    <div class="hero-content">
+      <div class="hero-label">障がい者雇用 × 職場緑化ソリューション</div>
+      <h1>
+        飾る緑化は、もう十分ある。
+        <span class="accent">育てることに、限界はない。</span>
+      </h1>
+      <p class="hero-sub">
+        社員が緑と花に触れ、関わるほど、<br>
+        ウェルビーイングの数値は着実に積み上がります。
+      </p>
+      <a href="#cta" class="hero-cta">まずは資料を受け取る（無料）</a>
+      <p class="hero-cta-note">しつこいご連絡はしません。資料だけのご請求も大歓迎です。</p>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=680&h=840&fit=crop&q=80" alt="植物を育てる様子（仮素材）">
+    </div>
   </div>
 </section>
 
@@ -713,17 +766,17 @@
 
     <div class="data-cards">
       <div class="data-card">
-        <div class="num">54<span style="font-size:24px">%</span></div>
+        <div class="num" data-count="54" data-suffix="%">54%</div>
         <div class="unit">の企業が、まだ達成できていません</div>
         <div class="desc">厚生労働省 2025年6月時点</div>
       </div>
       <div class="data-card">
-        <div class="num">5<span style="font-size:24px">万円</span></div>
+        <div class="num" data-count="5" data-suffix="万円">5万円</div>
         <div class="unit">月額 / 未達1人あたりのペナルティ</div>
         <div class="desc">100人超企業（2026年7月〜）</div>
       </div>
       <div class="data-card">
-        <div class="num">37.5<span style="font-size:20px">人</span></div>
+        <div class="num" data-count="37.5" data-suffix="人">37.5人</div>
         <div class="unit">以上の企業が新たに対象になります</div>
         <div class="desc">従来の40人以上から拡大</div>
       </div>
@@ -732,7 +785,7 @@
     <div class="issue-text">
       数字を埋めるだけの採用は、長続きしません。<br><br>
       同じ職場で、同じ方向を向いて、共に何かを育てる——<br>
-      その体験が、はじめて「共に働く」を本物にします。<br><br>
+      その体験が、「共に働く」を本物にします。<br><br>
       緑と花を育てることは、誰もが平等に関われる仕事です。<br>
       障害の有無に関わらず、全員が「育てた」と言える場所が、<br>
       インクルーシブな職場の起点になります。
@@ -747,7 +800,8 @@
     <h2 class="section-heading">3つの問いに、体験で答えます。</h2>
 
     <div class="solution-cards">
-      <div class="solution-card">
+      <div class="solution-card fade-in">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" class="card-icon" aria-hidden="true"><rect width="44" height="44" rx="22" fill="var(--gn-green)" fill-opacity="0.12"/><path d="M22 34V22" stroke="var(--gn-green)" stroke-width="2.5" stroke-linecap="round"/><path d="M22 26c-1-5 3-10 8-10-5 0-9 5-8 10z" fill="var(--gn-green)"/><path d="M22 28c1-4-2-8-7-8 5 0 8 4 7 8z" fill="var(--gn-green)" opacity="0.6"/></svg>
         <p class="q-label">QUESTION 01</p>
         <h3>「誰が、何の仕事をするんですか？」</h3>
         <p>
@@ -755,7 +809,8 @@
           挿し木・水やり・記録。アプリが一人ひとりに合わせた手順を届けるので、指導員の準備は最小限です。
         </p>
       </div>
-      <div class="solution-card">
+      <div class="solution-card fade-in">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" class="card-icon" aria-hidden="true"><rect width="44" height="44" rx="22" fill="var(--gn-green)" fill-opacity="0.12"/><path d="M22 32s-10-7-10-13a6 6 0 0 1 10-4.5A6 6 0 0 1 32 19c0 6-10 13-10 13z" fill="var(--gn-green)" opacity="0.85"/></svg>
         <p class="q-label">QUESTION 02</p>
         <h3>「本当に、続けてもらえますか？」</h3>
         <p>
@@ -763,7 +818,8 @@
           毎日の達成感と、感謝の循環が、やりがいをつくります。
         </p>
       </div>
-      <div class="solution-card">
+      <div class="solution-card fade-in">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" class="card-icon" aria-hidden="true"><rect width="44" height="44" rx="22" fill="var(--gn-green)" fill-opacity="0.12"/><rect x="11" y="25" width="6" height="8" rx="1" fill="var(--gn-green)" opacity="0.45"/><rect x="19" y="19" width="6" height="14" rx="1" fill="var(--gn-green)" opacity="0.7"/><rect x="27" y="13" width="6" height="20" rx="1" fill="var(--gn-green)"/></svg>
         <p class="q-label">QUESTION 03</p>
         <h3>「成果を、どう説明するんですか？」</h3>
         <p>
@@ -807,7 +863,7 @@
       <div class="reason-item">
         <div class="reason-num">03</div>
         <div>
-          <h3>アプリが、指導員の代わりに動きます</h3>
+          <h3>アプリが、指導員の負担を引き受けます</h3>
           <p>
             独自開発の管理アプリが、障がい特性に合わせた作業スケジュールを自動で生成し、記録を人事レポートへ変換します。<br>
             指導員の負担を減らしながら、支援の質を上げます。
@@ -857,7 +913,7 @@
       <p class="ev-body">
         眺めるより、育てるほうが、効果は大きい。<br>
         触れ、観察し、世話をする体験は、眺めるだけの緑化より、はるかに強い心理的効果を示しています。<br>
-        グリーンネットが「育てる職場」にこだわるのは、このエビデンスが根拠です。
+        このデータが、グリーンネットの「育てる」へのこだわりを支えています。
       </p>
       <div class="ev-researchers">
         <div class="ev-researcher">
@@ -891,6 +947,7 @@
     <p class="section-lead">実際の導入企業の取り組みをご紹介します。</p>
 
     <div class="case-card">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=220&fit=crop&q=80" alt="職場での植物ケアの様子（仮素材）" class="case-photo">
       <div class="case-header">
         <p class="case-label">CASE 01</p>
         <h3>育てることが、仕事になった日。</h3>
@@ -980,5 +1037,54 @@
   </div>
 </footer>
 
+<script>
+  // ── スクロール fadeIn ──
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 120);
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(
+    '.data-card, .solution-card, .reason-item, .ev-researcher, .fade-in'
+  ).forEach(el => {
+    el.classList.add('fade-in');
+    fadeObserver.observe(el);
+  });
+
+  // ── 数字カウントアップ ──
+  function animateCount(el, target, suffix, duration) {
+    const isFloat = target % 1 !== 0;
+    let start = null;
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = isFloat
+        ? (target * eased).toFixed(1)
+        : Math.floor(target * eased);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const numEl = entry.target.querySelector('.num');
+      if (!numEl) return;
+      const raw = numEl.dataset.count;
+      const suffix = numEl.dataset.suffix || '';
+      animateCount(numEl, parseFloat(raw), suffix, 1400);
+      countObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.data-card').forEach(el => countObserver.observe(el));
+</script>
 </body>
 </html>
